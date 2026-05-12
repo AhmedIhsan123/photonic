@@ -7,11 +7,15 @@ export function useApod() {
 	const key = import.meta.env.VITE_NASA_API_KEY;
 
 	useEffect(() => {
-		fetch(`https://api.nasa.gov/planetary/apod?api_key=${key}&date=2024-11-12`)
-			.then((res) => res.json())
-			.then((json) => setData(json))
-			.catch((err) => setError(err.message))
-			.finally(() => setLoading(false));
+		async function fetchApod() {
+			const query = `https://api.nasa.gov/planetary/apod?api_key=${key}&date=2024-11-12`;
+			const res = await fetch(query).catch((err) => setError(err.message));
+			const json = await res.json().catch((err) => setError(err.message));
+			setData(json);
+			setLoading(false);
+		}
+
+		fetchApod();
 	}, []); // empty array = runs once on mount
 
 	return { data, loading, error };
