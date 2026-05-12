@@ -46,9 +46,11 @@ export default function App() {
 			</section>
 			{loading && <p>Loading...</p>}
 			{error && <p>Error: {error}</p>}
-			{data?.map((item) => (
-				<Item key={item.date} data={item} />
-			))}
+			<div className="items-grid">
+				{data?.map((item) => (
+					<Item key={item.date} data={item} />
+				))}
+			</div>
 			<Footer />
 		</main>
 	);
