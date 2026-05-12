@@ -8,7 +8,7 @@ export function useApod() {
 
 	useEffect(() => {
 		async function fetchApod() {
-			const query = `https://api.nasa.gov/planetary/apod?api_key=${key}&date=2025-11-12`;
+			const query = `https://api.nasa.gov/planetary/apod?api_key=${key}&start_date=2025-01-01&end_date=2025-01-10`;
 			const res = await fetch(query).catch((err) => setError(err.message));
 			const json = await res.json().catch((err) => setError(err.message));
 			setData(json);

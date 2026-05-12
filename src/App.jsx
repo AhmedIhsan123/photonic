@@ -16,7 +16,9 @@ export default function App() {
 			<Header />
 			{loading && <p>Loading...</p>}
 			{error && <p>Error: {error}</p>}
-			{data && <Item data={data} />}
+			{data?.map((item) => (
+				<Item key={item.date} data={item} />
+			))}
 			<Footer />
 		</>
 	);
