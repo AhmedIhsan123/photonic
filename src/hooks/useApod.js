@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export function useApod() {
+export function useApod(startDate, endDate) {
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
@@ -8,7 +8,7 @@ export function useApod() {
 
 	useEffect(() => {
 		async function fetchApod() {
-			const query = `https://api.nasa.gov/planetary/apod?api_key=${key}&start_date=2025-01-01&end_date=2025-01-10`;
+			const query = `https://api.nasa.gov/planetary/apod?api_key=${key}&start_date=${startDate}&end_date=${endDate}`;
 			const res = await fetch(query).catch((err) => setError(err.message));
 			const json = await res.json().catch((err) => setError(err.message));
 			setData(json);
@@ -16,7 +16,7 @@ export function useApod() {
 		}
 
 		fetchApod();
-	}, []); // empty array = runs once on mount
+	}, [startDate, endDate]); // empty array = runs once on mount
 
 	return { data, loading, error };
 }
