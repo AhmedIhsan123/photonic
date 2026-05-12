@@ -6,7 +6,7 @@ import { useApod } from "./hooks/useApod";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Item from "./components/Item";
-// import "./App.css";
+import "./App.css";
 
 export default function App() {
 	const [startDate, setStartDate] = useState("2024-01-01");
@@ -15,29 +15,41 @@ export default function App() {
 	const { data, loading, error } = useApod(search.startDate, search.endDate);
 
 	return (
-		<>
+		<main className="app-container">
 			<Header />
-			<input
-				type="date"
-				value={startDate}
-				min="1996-01-01"
-				max={new Date().toISOString().split("T")[0]}
-				onChange={(e) => setStartDate(e.target.value)}
-			/>
-			<input
-				type="date"
-				value={endDate}
-				min="1996-01-01"
-				max={new Date().toISOString().split("T")[0]}
-				onChange={(e) => setEndDate(e.target.value)}
-			/>
-			<button onClick={() => setSearch({ startDate, endDate })}>Search</button>
+			<section className="input-container">
+				<div>
+					<label htmlFor="start-date">Start Date: </label>
+					<input
+						id="start-date"
+						type="date"
+						value={startDate}
+						min="1996-01-01"
+						max={new Date().toISOString().split("T")[0]}
+						onChange={(e) => setStartDate(e.target.value)}
+					/>
+				</div>
+				<div>
+					<label htmlFor="end-date">End Date: </label>
+					<input
+						id="end-date"
+						type="date"
+						value={endDate}
+						min="1996-01-01"
+						max={new Date().toISOString().split("T")[0]}
+						onChange={(e) => setEndDate(e.target.value)}
+					/>
+				</div>
+				<button onClick={() => setSearch({ startDate, endDate })}>
+					Search
+				</button>
+			</section>
 			{loading && <p>Loading...</p>}
 			{error && <p>Error: {error}</p>}
 			{data?.map((item) => (
 				<Item key={item.date} data={item} />
 			))}
 			<Footer />
-		</>
+		</main>
 	);
 }

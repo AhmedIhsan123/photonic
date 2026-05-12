@@ -1,0 +1,23 @@
+.app-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: row;
+	align-self: center;
+	align-items: center;
+	background-color: var(--accent-bg);
+	justify-content: center;
+	width: fit-content;
+	padding: 1rem;
+	gap: 0.25rem;
+}
+
+input[type="date"] {
+	color: var(--accent);
+	background: var(--code-bg);
+	border: 1px solid var(--border);
+	padding: 0.25rem;
+}
