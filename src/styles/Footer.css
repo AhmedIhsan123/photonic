@@ -1,0 +1,48 @@
+/* footer sits at the bottom, mirrors the header border */
+.site-footer {
+	border-top: 1px solid var(--border);
+	padding: 1.5rem 2rem;
+	margin-top: auto;
+}
+
+/* three items in a row, centered */
+.footer-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+/* nasa credit link styling */
+.footer-credit {
+	font-family: var(--mono);
+	font-size: 0.72rem;
+	color: var(--text-p);
+	margin: 0;
+	letter-spacing: 0.04em;
+}
+
+.footer-credit a {
+	color: var(--accent);
+	text-decoration: none;
+}
+
+.footer-credit a:hover {
+	text-decoration: underline;
+}
+
+/* small gold star between credit and copyright */
+.footer-divider {
+	color: var(--accent);
+	font-size: 0.6rem;
+	opacity: 0.6;
+}
+
+.footer-copy {
+	font-family: var(--mono);
+	font-size: 0.72rem;
+	color: var(--text-p);
+	margin: 0;
+	opacity: 0.5;
+	letter-spacing: 0.04em;
+}
