@@ -1,0 +1,46 @@
+/* header sits at the top, full width */
+.site-header {
+	border-bottom: 1px solid var(--border);
+	padding: 1.5rem 2rem;
+}
+
+/* logo + text side by side, centered */
+.header-inner {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+/* the little star glyph acts as a logo mark */
+.header-logo {
+	font-size: 2rem;
+	color: var(--accent);
+	line-height: 1;
+}
+
+.header-text {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+/* override the big global h1 size for the header specifically */
+.header-title {
+	font-family: var(--heading);
+	font-size: 2.2rem;
+	color: var(--text-h);
+	margin: 0;
+	letter-spacing: -0.5px;
+	line-height: 1;
+}
+
+.header-sub {
+	font-family: var(--mono);
+	font-size: 0.7rem;
+	color: var(--accent);
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	margin-top: 0.3rem;
+	opacity: 0.8;
+}
